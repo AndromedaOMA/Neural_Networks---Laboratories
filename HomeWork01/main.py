@@ -24,7 +24,7 @@ def load_system(path: pathlib.Path) -> tuple[list[list[float]], list[float]]:
                     result = sign + '1'
                     row.append(float(result))
             elif '+' not in i and '-' not in i and '=' not in i:
-                B.append(i)
+                B.append(float(i))
         A.append(row)
     return A, B
 
@@ -60,7 +60,7 @@ import math
 
 
 def norm(vector: list[float]) -> float:
-    return math.sqrt(pow(float(vector[0]), 2) + pow(float(vector[1]), 2) + pow(float(vector[2]), 2))
+    return math.sqrt(pow(vector[0], 2) + pow(vector[1], 2) + pow(vector[2], 2))
 
 
 print(f"{norm(B)=}")
@@ -147,3 +147,12 @@ def solve(matrix: list[list[float]], vector: list[float]) -> list[float]:
     return multiply(adjoint(matrix),vector)
 
 print(f"{solve(A, B)=}")
+
+
+# BONUS: Solve the ecuation using numpy
+print("BONUS!! using numpy")
+import numpy as np
+
+
+print(f"Using linalg.solve: {np.linalg.solve(A, B)}")
+
