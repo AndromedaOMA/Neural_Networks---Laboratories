@@ -144,7 +144,7 @@ def adjoint(matrix: list[list[float]]) -> list[list[float]]:
 print(f"Adjoint matrix: {adjoint(A)}")
 
 def solve(matrix: list[list[float]], vector: list[float]) -> list[float]:
-    return multiply(adjoint(matrix),vector)
+    return multiply(adjoint(matrix), vector)
 
 print(f"{solve(A, B)=}")
 
