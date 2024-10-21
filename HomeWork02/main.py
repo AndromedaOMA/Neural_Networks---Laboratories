@@ -1,3 +1,6 @@
+#inspiration: https://towardsdatascience.com/mnist-handwritten-digits-classification-from-scratch-using-python-numpy-b08e401c4dab
+
+
 import numpy as np
 from torchvision.datasets import MNIST
 
@@ -23,13 +26,40 @@ test_x, test_y = download_mnist(False)  #10000
 
 
 def batches_generator(train_data, train_labels):
-    """YIELD (continuous "return") the current baatches of 100 elements each"""
-    np.random.shuffle(train_data)
-    np.random.shuffle(train_labels)
+    """YIELD (continuous "return") the current batches of 100 elements each"""
+    indices = np.arange(len(train_data))
+    np.random.shuffle(indices)
 
     for i in range(0, len(train_data), 100):
-        yield train_data[i:i + 100], train_labels[i:i + 100]
+        batch_indices = indices[i:i + 100]
+        yield train_data[batch_indices], train_labels[batch_indices]
 
-for epoch in range(250):
+
+def weight_matrix_and_bias_generator():
+    return np.random.random((784, 10)) * 0.01,  np.random.random((1, 10))
+
+
+def compute_weighted_sum(data, weight, bias_vector):
+    return np.dot(data, weight) + bias_vector
+
+
+def compute_softmax_function(weight_vector):
+    exp_element = np.exp(weight_vector - np.max(weight_vector, axis=1))
+    return exp_element / np.sum(exp_element, axis=1)
+
+
+def compute_cross_entropy(labels, probabilities):
+    return -np.sum(labels * np.log(probabilities), axis=1)
+
+
+def gradient_descent()
+
+
+weight_matrix, bias = weight_matrix_and_bias_generator()
+for epoch in range(300):
     for data_batch, label_batch in batches_generator(train_x, train_y):
-        #TO DO
+        z = compute_weighted_sum(data_batch, weight_matrix, bias)
+        softmax_probabilities = compute_softmax_function(z)
+        predicted_class_index = np.argmax(softmax_probabilities)
+        loss = compute_cross_entropy(label_batch, softmax_probabilities)
+
