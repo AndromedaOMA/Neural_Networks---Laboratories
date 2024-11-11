@@ -52,6 +52,12 @@ def sigmoid(x, backpropagation=False):
     return s
 
 
+def relu(x, backpropagation=False):
+    if backpropagation:
+        return (x > 0).astype(float)
+    return np.maximum(0, x)
+
+
 def softmax(x, backpropagation=False):
     exp = np.exp(x - np.max(x))
     s = exp / np.sum(exp, axis=0)
@@ -61,7 +67,7 @@ def softmax(x, backpropagation=False):
 
 
 class NN:
-    def __init__(self, sizes=None, epochs=10, batches=100, learning_rate=0.1, dropout_rate=0.5):
+    def __init__(self, sizes=None, epochs=10, batches=100, learning_rate=0.1, dropout_rate=0.01):
         if sizes is None:
             sizes = [784, 100, 10]
         self.sizes = sizes
@@ -81,18 +87,18 @@ class NN:
             'W2': np.random.randn(out_layer, h_layer) * np.sqrt(2 / (out_layer + h_layer))  #10x100
         }
 
-    # def forward_prop(self, x_train, train=True):
-    def forward_prop(self, x_train):
+    def forward_prop(self, x_train, train=True):
+    # def forward_prop(self, x_train):
         params = self.params
 
         params['A0'] = x_train  #784x1
         params['Z1'] = np.dot(params['W1'], params['A0'])  #100x1
         params['A1'] = sigmoid(params['Z1'])  #100x1
 
-        # if train:
-        #     dropout_mask = np.random.rand(*params['A1'].shape) < (1 - self.dropout_rate)
-        #     params['A1'] *= dropout_mask
-        #     params['A1'] /= (1 - self.dropout_rate)
+        if train:
+            dropout_mask = np.random.rand(*params['A1'].shape) < (1 - self.dropout_rate)
+            params['A1'] *= dropout_mask
+            params['A1'] /= (1 - self.dropout_rate)
 
         params['Z2'] = np.dot(params['W2'], params['A1'])  #10x1
         params['A2'] = softmax(params['Z2'])  #10x1
@@ -113,8 +119,8 @@ class NN:
         predictions = []
         # for data_batch, label_batch in batches_generator(test_data, test_labels, self.batches):
         for i in range(len(test_data)):
-            # output = self.forward_prop(test_data[i], train=False)
-            output = self.forward_prop(test_data[i])
+            output = self.forward_prop(test_data[i], train=False)
+            # output = self.forward_prop(test_data[i])
             predict = np.argmax(output)
             predictions.append(predict == np.argmax(test_labels[i]))
         return np.mean(predictions)
@@ -124,7 +130,7 @@ class NN:
         for i in range(self.epochs):
             # for data_batch, label_batch in batches_generator(train_list, train_labels, self.batches):
             for j in range(len(train_list)):
-                output = self.forward_prop(train_list[j])
+                output = self.forward_prop(train_list[j], train=True)
                 self.backward_prop(train_labels[j], output)
 
             accuracy = self.compute_acc(test_list, test_labels)
@@ -134,4 +140,3 @@ class NN:
 if __name__ == "__main__":
     nn = NN()
     nn.train(train_x, train_y, test_x, test_y)
-
