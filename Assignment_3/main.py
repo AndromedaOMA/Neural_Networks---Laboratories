@@ -61,13 +61,14 @@ def softmax(x, backpropagation=False):
 
 
 class NN:
-    def __init__(self, sizes=None, epochs=10, batches=100, learning_rate=0.1):
+    def __init__(self, sizes=None, epochs=10, batches=100, learning_rate=0.1, dropout_rate=0.5):
         if sizes is None:
             sizes = [784, 100, 10]
         self.sizes = sizes
         self.epochs = epochs
         self.batches = batches
         self.learning_rate = learning_rate
+        self.dropout_rate = dropout_rate
 
         in_layer = self.sizes[0]
         h_layer = self.sizes[1]
@@ -80,12 +81,19 @@ class NN:
             'W2': np.random.randn(out_layer, h_layer) * np.sqrt(2 / (out_layer + h_layer))  #10x100
         }
 
+    # def forward_prop(self, x_train, train=True):
     def forward_prop(self, x_train):
         params = self.params
 
         params['A0'] = x_train  #784x1
         params['Z1'] = np.dot(params['W1'], params['A0'])  #100x1
         params['A1'] = sigmoid(params['Z1'])  #100x1
+
+        # if train:
+        #     dropout_mask = np.random.rand(*params['A1'].shape) < (1 - self.dropout_rate)
+        #     params['A1'] *= dropout_mask
+        #     params['A1'] /= (1 - self.dropout_rate)
+
         params['Z2'] = np.dot(params['W2'], params['A1'])  #10x1
         params['A2'] = softmax(params['Z2'])  #10x1
 
@@ -105,6 +113,7 @@ class NN:
         predictions = []
         # for data_batch, label_batch in batches_generator(test_data, test_labels, self.batches):
         for i in range(len(test_data)):
+            # output = self.forward_prop(test_data[i], train=False)
             output = self.forward_prop(test_data[i])
             predict = np.argmax(output)
             predictions.append(predict == np.argmax(test_labels[i]))
