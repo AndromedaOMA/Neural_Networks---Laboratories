@@ -46,6 +46,7 @@ def batches_generator(train_data, train_labels, no_of_batches):
 def sigmoid(x, backpropagation=False):
     # Clip values to prevent overflow
     x = np.clip(x, -500, 500)  # Clip x to avoid large values
+
     s = 1 / (1 + np.exp(-x))
     if backpropagation:
         return s * (1 - s)
@@ -59,15 +60,18 @@ def relu(x, backpropagation=False):
 
 
 def softmax(x, backpropagation=False):
+    # Clip values to prevent overflow
+    x = np.clip(x, -500, 500)  # Clip x to avoid large values
+
     exp = np.exp(x - np.max(x))
-    s = exp / np.sum(exp, axis=0)
+    s = exp / np.sum(exp, axis=0, keepdims=True)
     if backpropagation:
         return s * (1 - s)
     return s
 
 
 class NN:
-    def __init__(self, sizes=None, epochs=10, batches=100, learning_rate=0.1, dropout_rate=0.01):
+    def __init__(self, sizes=None, epochs=100, batches=250, learning_rate=0.1, dropout_rate=0.1):
         if sizes is None:
             sizes = [784, 100, 10]
         self.sizes = sizes
@@ -91,29 +95,31 @@ class NN:
     # def forward_prop(self, x_train):
         params = self.params
 
-        params['A0'] = x_train  #784x1
-        params['Z1'] = np.dot(params['W1'], params['A0'])  #100x1
-        params['A1'] = sigmoid(params['Z1'])  #100x1
+        params['A0'] = x_train  #784x100
+        params['Z1'] = np.dot(params['W1'], params['A0'].T)  #100x100
+        params['A1'] = relu(params['Z1'])  #100x100
 
         if train:
             dropout_mask = np.random.rand(*params['A1'].shape) < (1 - self.dropout_rate)
             params['A1'] *= dropout_mask
             params['A1'] /= (1 - self.dropout_rate)
 
-        params['Z2'] = np.dot(params['W2'], params['A1'])  #10x1
-        params['A2'] = softmax(params['Z2'])  #10x1
+        params['Z2'] = np.dot(params['W2'], params['A1'])  #10x100
+        params['A2'] = softmax(params['Z2'])  #10x100
 
         return params['A2']
 
     def backward_prop(self, y_train, output):
         params = self.params
 
-        # err = output - y_train
-        err = (output - y_train) * softmax(params['Z2'], backpropagation=True)
-        params['W2'] -= self.learning_rate * np.outer(err, params['A1'])
+        # err = output - y_train.T
+        err = (output - y_train.T) * softmax(params['Z2'], backpropagation=True)
+        # params['W2'] -= self.learning_rate * np.outer(err, params['A1'])
+        params['W2'] -= self.learning_rate * np.dot(err, params['A1'].T) / len(y_train)
 
-        err = np.dot(params['W2'].T, err) * sigmoid(params['Z1'], backpropagation=True)
-        params['W1'] -= self.learning_rate * np.outer(err, params['A0'])
+        err = np.dot(params['W2'].T, err) * relu(params['Z1'], backpropagation=True)
+        # params['W1'] -= self.learning_rate * np.outer(err, params['A0'])
+        params['W1'] -= self.learning_rate * np.dot(err, params['A0']) / len(y_train)
 
     def compute_acc(self, test_data, test_labels):
         predictions = []
@@ -128,10 +134,10 @@ class NN:
     def train(self, train_list, train_labels, test_list, test_labels):
         start_time = time.time()
         for i in range(self.epochs):
-            # for data_batch, label_batch in batches_generator(train_list, train_labels, self.batches):
-            for j in range(len(train_list)):
-                output = self.forward_prop(train_list[j], train=True)
-                self.backward_prop(train_labels[j], output)
+            for data_batch, label_batch in batches_generator(train_list, train_labels, self.batches):
+            # for j in range(len(train_list)):
+                output = self.forward_prop(data_batch, train=True)
+                self.backward_prop(label_batch, output)
 
             accuracy = self.compute_acc(test_list, test_labels)
             print(f'Epoch: {i + 1}, Time Spent: {time.time() - start_time}s, Accuracy: {accuracy * 100}%')
