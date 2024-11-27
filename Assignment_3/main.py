@@ -60,8 +60,8 @@ def relu(x, backpropagation=False):
 
 
 def softmax(x, backpropagation=False):
-    # Clip values to prevent overflow
-    x = np.clip(x, -500, 500)  # Clip x to avoid large values
+    # # Clip values to prevent overflow
+    # x = np.clip(x, -500, 500)  # Clip x to avoid large values
 
     exp = np.exp(x - np.max(x))
     s = exp / np.sum(exp, axis=0, keepdims=True)
