@@ -10,7 +10,8 @@ import pandas as pd
 
 
 batch_size = 50
-total_epochs = 60
+# total_epochs = 100
+total_epochs = 200
 lr = 0.001
 
 
@@ -24,16 +25,17 @@ class NN(nn.Module):
             nn.Linear(522, 261),
             nn.BatchNorm1d(261),
             nn.LeakyReLU(negative_slope=0.001),
-            nn.Linear(261, 174),
-            nn.BatchNorm1d(174),
+            nn.Dropout(0.1),
+            # nn.ReLU(),
+            nn.Linear(261, 200),
+            nn.BatchNorm1d(200),
             nn.ReLU(),
-            nn.Linear(174, 100),
-            nn.BatchNorm1d(100),
+            nn.Linear(200, 200),
+            nn.BatchNorm1d(200),
             nn.LeakyReLU(negative_slope=0.001),
-            nn.Linear(100, 87),
-            nn.BatchNorm1d(87),
-            nn.ReLU(),
-            nn.Linear(87, classes_size),
+            nn.Dropout(0.1),
+            # nn.ReLU(),
+            nn.Linear(200, classes_size),
             # nn.Dropout(0.1),
             nn.LogSoftmax(dim=1))
 
@@ -43,8 +45,8 @@ class NN(nn.Module):
 
 # Load Data
 train_transform = transforms.Compose([
-    # transforms.RandomRotation(20),
-    transforms.RandomAffine(0.3, translate=(0.1, 0.1)),
+    # transforms.RandomRotation(10),
+    transforms.RandomAffine(2, translate=(0.1, 0.1)),
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])
@@ -70,13 +72,22 @@ device = torch.device("cuda")
 # Initialize network
 model = NN().to(device)
 
+# model.load_state_dict(torch.load("99.31.pth"))
+# print("Model loaded from checkpoint with the best test accuracy.")
+
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=lr)
 # https://stackoverflow.com/questions/60050586/pytorch-change-the-learning-rate-based-on-number-of-epochs
 # optimizer = optim.SGD([torch.rand((2, 2), requires_grad=True)], lr=lr)
 # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
-scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.3, patience=2)
+# scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.2, patience=2)
+scheduler = torch.optim.lr_scheduler.OneCycleLR(
+    optimizer,
+    max_lr=0.001,
+    epochs=total_epochs,
+    steps_per_epoch=len(train_loader)
+)
 
 
 def check_accuracy(loader, model):
@@ -109,7 +120,7 @@ def check_accuracy(loader, model):
 
 
 # Early stopping variables
-patience = 5
+patience = 15
 best_test_acc = 0.0
 epochs_without_improvement = 0
 checkpoint_path = 'best_model.pth'
@@ -137,7 +148,9 @@ for epoch in range(total_epochs):
         # Gradient descent or adam step
         optimizer.step()
 
-    scheduler.step(loss)
+        scheduler.step()
+
+    # scheduler.step(loss)
 
     # Evaluate accuracy on train and test set
     train_acc = check_accuracy(train_loader, model)
