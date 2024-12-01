@@ -10,7 +10,7 @@ import pandas as pd
 
 
 batch_size = 50
-total_epochs = 50
+total_epochs = 60
 lr = 0.001
 
 
@@ -23,13 +23,13 @@ class NN(nn.Module):
             nn.ReLU(),
             nn.Linear(522, 261),
             nn.BatchNorm1d(261),
-            nn.ReLU(),
+            nn.LeakyReLU(negative_slope=0.001),
             nn.Linear(261, 174),
             nn.BatchNorm1d(174),
             nn.ReLU(),
             nn.Linear(174, 100),
             nn.BatchNorm1d(100),
-            nn.ReLU(),
+            nn.LeakyReLU(negative_slope=0.001),
             nn.Linear(100, 87),
             nn.BatchNorm1d(87),
             nn.ReLU(),
@@ -43,8 +43,8 @@ class NN(nn.Module):
 
 # Load Data
 train_transform = transforms.Compose([
-    # transforms.RandomRotation(2),
-    transforms.RandomAffine(0, translate=(0.1, 0.1)),
+    # transforms.RandomRotation(20),
+    transforms.RandomAffine(0.3, translate=(0.1, 0.1)),
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])
@@ -60,8 +60,8 @@ test_transform = transforms.Compose([
 train_dataset = datasets.MNIST(root="./training", train=True, transform=train_transform, download=True)
 test_dataset = datasets.MNIST(root="./tests", train=False, transform=test_transform, download=True)
 
-train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0, pin_memory=True)
-test_loader = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
+train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
+test_loader = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False, pin_memory=True)
 
 # Set device cuda for GPU if it's available otherwise run on the CPU
 # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -76,7 +76,7 @@ optimizer = optim.Adam(model.parameters(), lr=lr)
 # https://stackoverflow.com/questions/60050586/pytorch-change-the-learning-rate-based-on-number-of-epochs
 # optimizer = optim.SGD([torch.rand((2, 2), requires_grad=True)], lr=lr)
 # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
-scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=2)
+scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.3, patience=2)
 
 
 def check_accuracy(loader, model):
@@ -108,6 +108,13 @@ def check_accuracy(loader, model):
     return (num_correct / num_samples) * 100
 
 
+# Early stopping variables
+patience = 5
+best_test_acc = 0.0
+epochs_without_improvement = 0
+checkpoint_path = 'best_model.pth'
+
+
 # Train and validate the model
 for epoch in range(total_epochs):
     print(f"Epoch: {epoch+1}/{total_epochs}")
@@ -132,10 +139,33 @@ for epoch in range(total_epochs):
 
     scheduler.step(loss)
 
+    # Evaluate accuracy on train and test set
+    train_acc = check_accuracy(train_loader, model)
+    test_acc = check_accuracy(test_loader, model)
+
     current_lr = scheduler.get_last_lr()[0]
     print(f"Train accuracy: {check_accuracy(train_loader, model)}%,"
           f"Test accuracy: {check_accuracy(test_loader, model)}%, "
           f"Current learning rate: {current_lr}")
+
+    # Check for improvement in test accuracy
+    if test_acc > best_test_acc:
+        best_test_acc = test_acc
+        epochs_without_improvement = 0
+        # Save model checkpoint
+        torch.save(model.state_dict(), checkpoint_path)
+        print(f"New best test accuracy: {best_test_acc:.2f}%. Model saved.")
+    else:
+        epochs_without_improvement += 1
+
+    # Early stopping condition
+    if epochs_without_improvement >= patience:
+        print(f"Early stopping triggered. No improvement in test accuracy for {patience} epochs.")
+        break
+
+# After training, load the model with the best test accuracy
+model.load_state_dict(torch.load(checkpoint_path))
+print("Model loaded from checkpoint with the best test accuracy.")
 
 # Predict on test dataset and save to CSV
 csv_data = {
@@ -145,7 +175,7 @@ csv_data = {
 
 model.eval()
 with torch.no_grad():
-    for i, (data, targets) in enumerate(tqdm(test_loader)):
+    for i, (data, targets) in enumerate(test_loader):
         # Get data to cuda if possible
         data = data.to(device=device)
         targets = targets.to(device=device)
