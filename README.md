@@ -13,7 +13,7 @@
 
 --------------------------------------------------------------------------------
 ## Assignment_5:
-<h3 align="left">Here we have the requirement:</h3>
+<h3 id="assignment-5" align="left">Here we have the requirement:</h3>
 (RO) ...
 
 (EN) ...
@@ -29,7 +29,7 @@
 ---
 
 ## Assignment_4.5:
-<h3 id="assignment_4.5" align="left">Here we have the requirement:</h3>
+<h3 id="assignment-4-5" align="left">Here we have the requirement:</h3>
 (RO) ...
 
 (EN) ...
@@ -45,7 +45,7 @@
 ---
 
 ## Assignment_4:
-<h3 id="assignment_4" align="left">Here we have the requirement:</h3>
+<h3 id="assignment-4" align="left">Here we have the requirement:</h3>
 (RO) ...
 
 (EN) ...
