@@ -16,33 +16,42 @@
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
 (EN) ...
----
-<h3 align="left">The logic behind the code:</h3>
-  - ...
----
-# How does it work?
-- ...
----
- * [Structure](#structure)
----
-## Assignment_1:
 
 ---
+
+<h3 align="left">The logic behind the code:</h3>
+  - ...
+
+---
+
+# How does it work?
+  - ...
+
+---
+
  * [Structure](#structure)
+
 ---
 
 ## Assignment_4.5:
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
 (EN) ...
+
 ---
+
 <h3 align="left">The logic behind the code:</h3>
   - ...
+
 ---
+
 # How does it work?
 - ...
+
 ---
+
  * [Structure](#structure)
+
 ---
 
 <h3 align="left">Installation:</h3>
