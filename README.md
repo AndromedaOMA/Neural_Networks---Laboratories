@@ -18,7 +18,7 @@
 <h3 align="left">Installation:</h3>
 
 1. Clone the current repositoy! Now you have the project avalable on your local server!</br>
- Type command: ```git clone github.com:AndromedaOMA/Neural_Networks---Laboratories.gitt```
+ Type command: ```git clone git@github.com:AndromedaOMA/Neural_Networks---Laboratories.git```
 2. Select and open the chosen project through Pycharm.
 3. Have fun!
 
