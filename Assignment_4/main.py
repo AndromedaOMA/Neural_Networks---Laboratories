@@ -8,6 +8,10 @@ from torch.utils.data import DataLoader  # For management of the dataset (batche
 from tqdm import tqdm  # For nice progress bar!
 import pandas as pd
 
+"""
+Best acc: 99.40%
+"""
+
 
 batch_size = 50
 # total_epochs = 100
@@ -54,10 +58,6 @@ test_transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])
-# transform = transforms.Compose([
-#     transforms.ToTensor(),
-#     transforms.Normalize((0.5,), (0.5,))
-# ])
 
 train_dataset = datasets.MNIST(root="./training", train=True, transform=train_transform, download=True)
 test_dataset = datasets.MNIST(root="./tests", train=False, transform=test_transform, download=True)
@@ -71,9 +71,6 @@ device = torch.device("cuda")
 
 # Initialize network
 model = NN().to(device)
-
-# model.load_state_dict(torch.load("99.31.pth"))
-# print("Model loaded from checkpoint with the best test accuracy.")
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
