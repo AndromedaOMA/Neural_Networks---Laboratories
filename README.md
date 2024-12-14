@@ -43,6 +43,54 @@
 
 ---
 
+## Assignment_3:
+<h3 align="left">Here we have the requirement:</h3>
+(RO) ...
+
+(EN) ...
+
+<h3 align="left">The logic behind the code:</h3>
+  - ...
+
+<h3 align="left">How does it work?</h3>
+  - ...
+
+* [Structure](#structure)
+
+---
+
+## Assignment_2:
+<h3 align="left">Here we have the requirement:</h3>
+(RO) ...
+
+(EN) ...
+
+<h3 align="left">The logic behind the code:</h3>
+  - ...
+
+<h3 align="left">How does it work?</h3>
+  - ...
+
+* [Structure](#structure)
+
+---
+
+## Assignment_1:
+<h3 align="left">Here we have the requirement:</h3>
+(RO) ...
+
+(EN) ...
+
+<h3 align="left">The logic behind the code:</h3>
+  - ...
+
+<h3 align="left">How does it work?</h3>
+  - ...
+
+* [Structure](#structure)
+
+---
+
 <h3 align="left">Installation:</h3>
 
 1. Clone the current repositoy! Now you have the project avalable on your local server!</br>
