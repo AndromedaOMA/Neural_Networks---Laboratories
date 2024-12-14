@@ -1,7 +1,6 @@
 <h1 align="center">Hi 👋, here we have the Neural Network labs</h1>
 <h3 align="center">Developed these labs in the fifth semester of the faculty.</h3>
 
----
 
 ## Structure
 * [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment_5)
@@ -18,12 +17,8 @@
 
 (EN) ...
 
----
-
 <h3 align="left">The logic behind the code:</h3>
   - ...
-
----
 
 <h3 align="left">How does it work?</h3>
   - ...
@@ -38,17 +33,11 @@
 
 (EN) ...
 
----
-
 <h3 align="left">The logic behind the code:</h3>
   - ...
 
----
-
 <h3 align="left">How does it work?</h3>
   - ...
-
----
 
 * [Structure](#structure)
 
