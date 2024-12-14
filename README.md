@@ -15,6 +15,7 @@
 ## Assignment_5:
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
+
 (EN) ...
 
 ---
@@ -24,18 +25,17 @@
 
 ---
 
-# How does it work?
+<h3 align="left">How does it work?</h3>
   - ...
 
----
-
- * [Structure](#structure)
+* [Structure](#structure)
 
 ---
 
 ## Assignment_4.5:
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
+
 (EN) ...
 
 ---
@@ -45,12 +45,12 @@
 
 ---
 
-# How does it work?
-- ...
+<h3 align="left">How does it work?</h3>
+  - ...
 
 ---
 
- * [Structure](#structure)
+* [Structure](#structure)
 
 ---
 
