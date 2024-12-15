@@ -61,6 +61,8 @@ We will build the convolutional layers that will process the images from the MNI
 
 The convolutional neural network contains 2 convolutional layers followed by one Pooling layer each. The first convolution layer will contain 16 channels and the second layer will contain 32 channels. The transition from each convolution layer to the pooling layer is processed and filtered by means of a ReLU activation function and BatchNorm2d normalization.
 
+Convolutional neural network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
+
 * [Structure](#structure)
 
 ---
