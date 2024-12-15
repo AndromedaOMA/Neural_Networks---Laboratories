@@ -48,7 +48,7 @@ It is not necessary to implement the neural network from scratch (you can use Py
 
 Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870.
 Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
-IMPORTANT NOTE: Implement and train a CNN!
+IMPORTANT NOTE: Implement and train a Convolutional Neural Network(CNN)!
 
 <h3 align="left">Specifications:</h3>
 
@@ -56,13 +56,19 @@ View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0
 
 <h3 align="left">The logic behind the code:</h3>
 
-We will build the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. Finally, we will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train the convolutional neural network
+We will build the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. We will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train the convolutional neural network.
 
 <h3 align="left">How does it work?</h3>
 
 The convolutional neural network contains 2 convolutional layers followed by one Pooling layer each. The first convolution layer will contain 16 channels and the second layer will contain 32 channels. The transition from each convolution layer to the pooling layer is processed and filtered by means of a ReLU activation function and BatchNorm2d normalization.
 
-Convolutional neural network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
+The fully connected neural network contains a number of two hidden layers that help to process the prediction of the entire artificial neural network. Between the two layers we used a Dropout normalization to reduce the possibility of overfitting and the ReLU activation function.
+
+From the optimization point of view, we will use the adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
+
+The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
+
+The Convolutional neural network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
 * [Structure](#structure)
 
@@ -70,16 +76,29 @@ Convolutional neural network achieves 99.50% test accuracy. The model that achie
 
 <h1 id="assignment-4" align="left">Assignment_4:</h1>
 
-<h3 id="assignment-4" align="left">Here we have the requirement:</h3>
-(RO) ...
+<h3 align="left">Here we have the requirement:</h3>
 
-(EN) ...
+Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870.
+Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
+IMPORTANT NOTE: Implement and train a Multy Layer Neural Network(MLNN)!
+
+<h3 align="left">Specifications:</h3>
+
+View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870
 
 <h3 align="left">The logic behind the code:</h3>
-  - ...
+
+We will download and upload the MNIST dataset data in mini-batches to a classical fully connected neural network. Finally we will apply the backpropagation process to adjust the weights/train the neural network.
 
 <h3 align="left">How does it work?</h3>
-  - ...
+
+The neural network contains a number of five hidden layers that help to process the prediction of the entire artificial neural network. Between these layers we will use Dropout normalizations to reduce the possibility of overfitting and LeakyReLU activation functions, as well as BatchNorm1d normalization to speed up the training process.
+
+From the optimization point of view, we will use the adam optimizer and the OneCycleLR learning rate scheduler, which adjusts the learning rate and optionally momentum during training to achieve faster convergence and better generalization.
+
+The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
+
+The neural network achieves 99.40% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission_99.40.csv".
 
 * [Structure](#structure)
 
