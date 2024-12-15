@@ -71,7 +71,7 @@ def softmax(x, backpropagation=False):
 
 
 class NN:
-    def __init__(self, sizes=None, epochs=100, batches=250, learning_rate=0.1, dropout_rate=0.1):
+    def __init__(self, sizes=None, epochs=400, batches=250, learning_rate=0.1, dropout_rate=0.1):
         if sizes is None:
             sizes = [784, 100, 10]
         self.sizes = sizes

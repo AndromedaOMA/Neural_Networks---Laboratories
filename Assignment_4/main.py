@@ -66,8 +66,8 @@ train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=
 test_loader = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False, pin_memory=True)
 
 # Set device cuda for GPU if it's available otherwise run on the CPU
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cuda")
 
 # Initialize network
 model = NN().to(device)

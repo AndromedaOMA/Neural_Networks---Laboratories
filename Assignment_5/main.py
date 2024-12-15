@@ -41,7 +41,9 @@ class CNN(torch.nn.Module):
         return x
 
 
-device = torch.device("cuda")
+# device = torch.device("cuda")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 train_transformer = transforms.Compose([
     transforms.RandomAffine(degrees=2, translate=[0.1, 0.1]),
