@@ -55,10 +55,11 @@ View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0
 
 <h3 align="left">The logic behind the code:</h3>
 
-
+We will build the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. Finally, we will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train the convolutional neural network
 
 <h3 align="left">How does it work?</h3>
-  - ...
+
+The convolutional neural network contains 2 convolutional layers followed by one Pooling layer each. The first convolution layer will contain 16 channels and the second layer will contain 32 channels. The transition from each convolution layer to the pooling layer is processed and filtered by means of a ReLU activation function and BatchNorm2d normalization.
 
 * [Structure](#structure)
 
