@@ -169,15 +169,34 @@ The Neural Network achieves 97% test accuracy.
 <h1 id="assignment-2" align="left">Assignment_2:</h1>
 
 <h3 align="left">Here we have the requirement:</h3>
-(RO) ...
 
-(EN) ...
+In this exercise, you are tasked with implementing both the forward and backward
+propagation processes for a neural network with 784 inputs and 10 outputs
+using NumPy. This network can be thought of as consisting of 10 perceptrons,
+each responsible for predicting one of the 10 output classes.
+
+Given an input matrix X of shape (m, 784), where m is the batch size and 784
+is the number of features (input neurons), a weight matrix W of shape (784, 10),
+and a bias matrix b of shape (10, ), compute the output of the network for each
+example in the batch, calculate the error, and update the weights and biases
+accordingly.
+
+Download the MNIST dataset, load the images, and propagate them through
+your network. Record the initial prediction accuracy before training and the
+prediction accuracy after training for a specified number of epochs.
+
+1. Load the MNIST dataset.
+2. Normalize the data and convert the labels to one-hot-encoding.
+3. Train the perceptron for 50-500 epochs.
+      • For each epoch, split the training data and training labels into batches of 100 elements.
+      • For each batch, compute the output of the network using the softmax function. (3 points)
+      • Implement the gradient descent algorithm to update the weights and biases. (7 points)
+      • Have an efficient implementation. (2 points)
+      • Achieve at least 90% accuracy on the testing data. (3 points)
 
 <h3 align="left">The logic behind the code:</h3>
-  - ...
 
-<h3 align="left">How does it work?</h3>
-  - ...
+  We have here an introductory implementation of a perceptron, where we dealt with the simplest neural network typology.
 
 * [Structure](#structure)
 
@@ -186,15 +205,8 @@ The Neural Network achieves 97% test accuracy.
 <h1 id="assignment-1" align="left">Assignment_1:</h1>
 
 <h3 align="left">Here we have the requirement:</h3>
-(RO) ...
 
-(EN) ...
-
-<h3 align="left">The logic behind the code:</h3>
-  - ...
-
-<h3 align="left">How does it work?</h3>
-  - ...
+We have nothing more than simple and introductory problems in the world of Python.
 
 * [Structure](#structure)
 
