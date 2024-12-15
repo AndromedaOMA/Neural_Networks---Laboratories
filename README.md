@@ -12,11 +12,25 @@
 
 
 --------------------------------------------------------------------------------
-## Assignment_5:
-<h3 align="left">Here we have the requirement:</h3>
-(RO) ...
+## Assignment_5
 
-(EN) ...
+<h3 align="left">Here we have the requirement:</h3>
+
+Implement and train a neural network using the Q learning algorithm to control an agent in the Flappy Bird game.
+
+<h3 align="left">Environment:</h3>
+
+You can use a Flappy Bird environment from [here](https://pypi.org/project/flappy-bird-gymnasium/) or [here](https://github.com/Talendar/flappy-bird-gym) or another environment. Why not create your own? If you use a pre-made environment, make sure you can render the environment and interact with it.
+
+<h3 align="left">Specifications:</h3>
+
+You can train the model directly on images (the model receives the pixels) or you can extract helpful features. Based on the input you are using for the model, the maximum score is capped to:
+
+- 20 points: if you provide the game state directly (this might include positions of the pipes, bird, direction, simple distances)
+- 25 points: if you provide preprocessed features (this might include more complex features extracted from the image: e.g. sensors/lidar for the bird)
+- 30 points: if you use the image as input, eventually preprocessed, if needed (resizing, grayscale conversion, thresholding, dilation, erosion, background removal, etc.)
+
+It is not necessary to implement the neural network from scratch (you can use PyTorch), but you must implement the Q learning algorithm.
 
 <h3 align="left">The logic behind the code:</h3>
   - ...
@@ -29,13 +43,19 @@
 ---
 
 ## Assignment_4.5:
-<h3 id="assignment-4-5" align="left">Here we have the requirement:</h3>
-(RO) ...
+<h3 align="left">Here we have the requirement:</h3>
 
-(EN) ...
+Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870.
+Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
+IMPORTANT NOTE: Implement and train a CNN!
+
+<h3 align="left">Specifications:</h3>
+
+View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870
 
 <h3 align="left">The logic behind the code:</h3>
-  - ...
+
+
 
 <h3 align="left">How does it work?</h3>
   - ...
