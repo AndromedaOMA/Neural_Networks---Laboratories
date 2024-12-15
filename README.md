@@ -70,7 +70,7 @@ From the optimization point of view, we will use the adam optimizer and the Cosi
 
 The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
 
-The Convolutional neural network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
+The Convolutional Neural Network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
 * [Structure](#structure)
 
@@ -148,10 +148,19 @@ Bonus : Strive for higher accuracy (not graded, but always try to be better).
 
 <h3 align="left">How does it work?</h3>
 
+We have implemented and trained a first Neural Network using the NumPy library. It comes with a simplistic and quite efficient structure, as the statement above requires: an input layer (784), a hidden layer (100) and an output layer (10).
 
+Every neural layer, method, optimizer and activation function will be implemented from scratch.
 
 <h3 align="left">The logic behind the code:</h3>
-  - ...
+
+The multi layer network uses a ReLU activation function for modeling and processing and Softmax which will adjust the final results during the Forward propagation process. Time during which the partial derivatives of these functions will be used during the Back propagation process.
+
+The weights will be initialized with random values ​​using the Xavier method that uses symmetric functions to avoid blocking the neural network. It helps stabilize the variance of activations across layers, leading to better convergence during training.
+
+From the dataset point of view, I have implemented a method that will generate batches from the entire dataset and shuffle them.
+
+The Neural Network achieves 97% test accuracy.
 
 * [Structure](#structure)
 
@@ -195,7 +204,7 @@ Bonus : Strive for higher accuracy (not graded, but always try to be better).
 
 1. Clone the current repositoy! Now you have the project avalable on your local server!</br>
  Type command: ```git clone git@github.com:AndromedaOMA/Neural_Networks---Laboratories.git```
-2. Select and open the chosen project through PyCharm IDE.
+2. Select, open and run the chosen project through PyCharm IDE or the preferred IDE.
 3. Have fun!
     
 ---
