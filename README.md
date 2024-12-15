@@ -7,8 +7,8 @@
 * [Assignment_4.5: Developed and trained a Convolutional Neural Network (CNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5)
 * [Assignment_4: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4)
 * [Assignment_3: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using NumPy library](#assignment-3)
-* [Assignment_2: First implementation of a single-layer Neural Network using NumPy library](#assignment-2)
-* [Assignment_1: Familiarizing myself with the Numpy library](#assignment-1)
+* [Assignment_2: First implementation of a single-layer Neural Network (Peceptron) using NumPy library](#assignment-2)
+* [Assignment_1: Familiarizing myself with the Python programming language](#assignment-1)
 
 
 --------------------------------------------------------------------------------
