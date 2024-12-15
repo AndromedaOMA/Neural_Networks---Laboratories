@@ -2,7 +2,7 @@
 <h3 align="center">Developed these labs in the fifth semester of the faculty.</h3>
 
 
-## Structure
+## Content
 * [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment-5)
 * [Assignment_4.5: Developed and trained a Convolutional Neural Network (CNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5)
 * [Assignment_4: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4)
@@ -38,7 +38,7 @@ It is not necessary to implement the neural network from scratch (you can use Py
 <h3 align="left">How does it work?</h3>
   - ...
 
-* [Structure](#structure)
+* [Content](#content)
 
 ---
 
@@ -72,7 +72,7 @@ The data set was processed/transformed using RandomAffine for easy modification 
 
 The Convolutional Neural Network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
-* [Structure](#structure)
+* [Content](#content)
 
 ---
 
@@ -102,7 +102,7 @@ The data set was processed/transformed using RandomAffine for easy modification 
 
 The neural network achieves 99.40% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission_99.40.csv".
 
-* [Structure](#structure)
+* [Content](#content)
 
 ---
 
@@ -148,7 +148,7 @@ Bonus : Strive for higher accuracy (not graded, but always try to be better).
 
 <h3 align="left">How does it work?</h3>
 
-We have implemented and trained a first Neural Network using the NumPy library. It comes with a simplistic and quite efficient structure, as the statement above requires: an input layer (784), a hidden layer (100) and an output layer (10).
+We have implemented and trained a first Neural Network using the NumPy library. It comes with a simplistic and quite efficient content, as the statement above requires: an input layer (784), a hidden layer (100) and an output layer (10).
 
 Every neural layer, method, optimizer and activation function will be implemented from scratch.
 
@@ -162,7 +162,7 @@ From the dataset point of view, I have implemented a method that will generate b
 
 The Neural Network achieves 97% test accuracy.
 
-* [Structure](#structure)
+* [Content](#content)
 
 ---
 
@@ -198,7 +198,7 @@ prediction accuracy after training for a specified number of epochs.
 
   We have here an introductory implementation of a perceptron, where we dealt with the simplest neural network typology.
 
-* [Structure](#structure)
+* [Content](#content)
 
 ---
 
@@ -208,7 +208,7 @@ prediction accuracy after training for a specified number of epochs.
 
 We have nothing more than simple and introductory problems in the world of Python.
 
-* [Structure](#structure)
+* [Content](#content)
 
 ---
 
