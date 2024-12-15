@@ -3,16 +3,16 @@
 
 
 ## Structure
-* [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment_5)
+* [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment-5)
 * [Assignment_4.5: Developed and trained a Convolutional Neural Network (CNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5)
 * [Assignment_4: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4)
-* [Assignment_3: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using NumPy library](#assignment_3)
-* [Assignment_2: First implementation of a single-layer Neural Network using NumPy library](#assignment_2)
-* [Assignment_1: Familiarizing myself with the Numpy library](#assignment_1)
+* [Assignment_3: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using NumPy library](#assignment-3)
+* [Assignment_2: First implementation of a single-layer Neural Network using NumPy library](#assignment-2)
+* [Assignment_1: Familiarizing myself with the Numpy library](#assignment-1)
 
 
 --------------------------------------------------------------------------------
-## Assignment_5
+<h1 id="assignment-5" align="left">Assignment_5:</h1>
 
 <h3 align="left">Here we have the requirement:</h3>
 
@@ -42,7 +42,8 @@ It is not necessary to implement the neural network from scratch (you can use Py
 
 ---
 
-## Assignment_4.5:
+<h1 id="assignment-4-5" align="left">Assignment_4.5:</h1>
+
 <h3 align="left">Here we have the requirement:</h3>
 
 Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870.
@@ -67,7 +68,8 @@ Convolutional neural network achieves 99.50% test accuracy. The model that achie
 
 ---
 
-## Assignment_4:
+<h1 id="assignment-4" align="left">Assignment_4:</h1>
+
 <h3 id="assignment-4" align="left">Here we have the requirement:</h3>
 (RO) ...
 
@@ -83,7 +85,8 @@ Convolutional neural network achieves 99.50% test accuracy. The model that achie
 
 ---
 
-## Assignment_3:
+<h1 id="assignment-3" align="left">Assignment_3:</h1>
+
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
 
@@ -99,7 +102,8 @@ Convolutional neural network achieves 99.50% test accuracy. The model that achie
 
 ---
 
-## Assignment_2:
+<h1 id="assignment-2" align="left">Assignment_2:</h1>
+
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
 
@@ -115,7 +119,8 @@ Convolutional neural network achieves 99.50% test accuracy. The model that achie
 
 ---
 
-## Assignment_1:
+<h1 id="assignment-1" align="left">Assignment_1:</h1>
+
 <h3 align="left">Here we have the requirement:</h3>
 (RO) ...
 
