@@ -9,7 +9,7 @@
 * [Assignment_3: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using NumPy library](#assignment-3)
 * [Assignment_2: First implementation of a single-layer Neural Network (Peceptron) using NumPy library](#assignment-2)
 * [Assignment_1: Familiarizing myself with the Python programming language](#assignment-1)
-
+* [Installation](#inst)
 
 --------------------------------------------------------------------------------
 <h1 id="assignment-5" align="left">Assignment_5:</h1>
@@ -212,7 +212,7 @@ We have nothing more than simple and introductory problems in the world of Pytho
 
 ---
 
-<h3 align="left">Installation:</h3>
+<h3 id="inst" align="left">Installation:</h3>
 
 1. Clone the current repositoy! Now you have the project avalable on your local server!</br>
  Type command: ```git clone git@github.com:AndromedaOMA/Neural_Networks---Laboratories.git```
