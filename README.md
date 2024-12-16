@@ -70,7 +70,7 @@ From the optimization point of view, we will use the adam optimizer and the Cosi
 
 The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
 
-The Convolutional Neural Network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
+The Convolutional Neural Network achieves 99.56% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
 * [Content](#content)
 
