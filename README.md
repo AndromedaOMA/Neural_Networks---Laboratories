@@ -64,7 +64,7 @@ We will build the convolutional layers that will process the images from the MNI
 
 The convolutional neural network contains 2 convolutional layers followed by one Pooling layer each. The first convolution layer will contain 16 channels and the second layer will contain 32 channels. The transition from each convolution layer to the pooling layer is processed and filtered by means of a ReLU activation function and BatchNorm2d normalization.
 
-The fully connected neural network contains a number of two hidden layers that help to process the prediction of the entire artificial neural network. Between the two layers we used a Dropout normalization to reduce the possibility of overfitting and the ReLU activation function.
+The fully connected neural network contains a number of two hidden layers that help to process the prediction of the entire artificial neural network. Between the two layers we used a Dropout regularization to reduce the possibility of overfitting and the ReLU activation function.
 
 From the optimization point of view, we will use the adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
 
@@ -94,7 +94,7 @@ We will download and upload the MNIST dataset data in mini-batches to a classica
 
 <h3 align="left">The logic behind the code:</h3>
 
-The neural network contains a number of five hidden layers that help to process the prediction of the entire artificial neural network. Between these layers we will use Dropout normalizations to reduce the possibility of overfitting and LeakyReLU activation functions, as well as BatchNorm1d normalization to speed up the training process.
+The neural network contains a number of five hidden layers that help to process the prediction of the entire artificial neural network. Between these layers we will use Dropout regularizations to reduce the possibility of overfitting and LeakyReLU activation functions, as well as BatchNorm1d normalization to speed up the training process.
 
 From the optimization point of view, we will use the adam optimizer and the OneCycleLR learning rate scheduler, which adjusts the learning rate and optionally momentum during training to achieve faster convergence and better generalization.
 
