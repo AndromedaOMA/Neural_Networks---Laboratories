@@ -7,7 +7,7 @@ from tqdm import tqdm
 import pandas as pd
 
 """
-Best acc: 99.50%
+Best acc: 99.56%
 """
 
 
