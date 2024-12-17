@@ -8,7 +8,7 @@ import pandas as pd
 from residual_block_dir import ResidualBlock
 
 """
-Best acc: ?? %
+Best acc: 99.71%
 """
 
 total_epochs = 200
