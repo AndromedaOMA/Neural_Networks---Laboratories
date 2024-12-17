@@ -51,6 +51,7 @@ Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422
 Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
 
 IMPORTANT NOTE: Implement and train a Residual Neural Network(ResNet)!
+</br>
 ALSO NOTE: This assignment is actually a bonus and continuation of assignment_4!
 
 <h3 align="left">Specifications:</h3>
@@ -85,6 +86,7 @@ Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422
 Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
 
 IMPORTANT NOTE: Implement and train a Convolutional Neural Network(CNN)!
+</br>
 ALSO NOTE: This assignment is actually a bonus and continuation of assignment_4!
 
 <h3 align="left">Specifications:</h3>
