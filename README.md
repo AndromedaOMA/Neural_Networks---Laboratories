@@ -2,7 +2,7 @@
 <h3 align="center">Developed these labs in the fifth semester of the faculty.</h3>
 
 
-## Content
+## Table Of Content
 * [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment-5)
 * [Assignment_4.5.2: Developed and trained a Residual Neural Network (ResNet) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5-2)
 * [Assignment_4.5: Developed and trained a Convolutional Neural Network (CNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5)
@@ -39,7 +39,7 @@ It is not necessary to implement the neural network from scratch (you can use Py
 <h3 align="left">How does it work?</h3>
   - ...
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
@@ -60,21 +60,21 @@ View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0
 
 <h3 align="left">How does it work?</h3>
 
-Built and implemented the residual layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. Also built the fully connected layers that serve to provide the desired predictions. Finally the backpropagation process will be applied to adjust the weights/train of the ResNet.
+Built and implemented the residual blocks, which in turn use the BatchNorm2d normalization and the GELU activation function, that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. Also built the fully connected layers that serve to provide the desired predictions. Finally the backpropagation process will be applied to adjust the weights/train of the ResNet.
 
 <h3 align="left">The logic behind the code:</h3>
 
-The ResNet contains one convolutional layer of 16 channels followed by a 2D batch normalization and ReLU activation function, further, two residual layers are implemented, each with 16 or 32 channels, the last one having a stride equal to 2. To make this possible, a second script "residual_block.py" will help implement the residual blocks that will take into account the residual connections that "skip" one or more layers.
+The ResNet contains one convolutional layer of 16 channels followed by a 2D batch normalization and ReLU activation function, further, two residual blocks are implemented, each with 16 or 32 channels, the last one having a stride equal to 2. To make this possible, a second script "residual_block.py" will help implement the residual blocks that will take into account the residual connections that "skip" one or more layers.
 
 The fully connected neural network contains a number of two hidden layers that help to process the prediction of the entire artificial neural network. Between the two layers we used a Dropout regularization to reduce the possibility of overfitting and the ReLU activation function.
 
-From the optimization point of view, we will use the adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
+From the optimization point of view, we will use the Adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
 
 The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
 
 The Residual Neural Network achieves 99.71% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
@@ -103,13 +103,13 @@ The convolutional neural network contains 2 convolutional layers followed by one
 
 The fully connected neural network contains a number of two hidden layers that help to process the prediction of the entire artificial neural network. Between the two layers we used a Dropout regularization to reduce the possibility of overfitting and the ReLU activation function.
 
-From the optimization point of view, we will use the adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
+From the optimization point of view, we will use the Adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
 
 The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
 
 The Convolutional Neural Network achieves 99.56% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
@@ -133,13 +133,13 @@ We will download and upload the MNIST dataset data in mini-batches to a classica
 
 The neural network contains a number of five hidden layers that help to process the prediction of the entire artificial neural network. Between these layers we will use Dropout regularizations to reduce the possibility of overfitting and LeakyReLU activation functions, as well as BatchNorm1d normalization to speed up the training process.
 
-From the optimization point of view, we will use the adam optimizer and the OneCycleLR learning rate scheduler, which adjusts the learning rate and optionally momentum during training to achieve faster convergence and better generalization.
+From the optimization point of view, we will use the Adam optimizer and the OneCycleLR learning rate scheduler, which adjusts the learning rate and optionally momentum during training to achieve faster convergence and better generalization.
 
 The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
 
 The neural network achieves 99.40% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission_99.40.csv".
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
@@ -199,7 +199,7 @@ From the dataset point of view, I have implemented a method that will generate b
 
 The Neural Network achieves 97% test accuracy.
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
@@ -235,7 +235,7 @@ prediction accuracy after training for a specified number of epochs.
 
   We have here an introductory implementation of a perceptron, where we dealt with the simplest neural network typology.
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
@@ -245,7 +245,7 @@ prediction accuracy after training for a specified number of epochs.
 
 We have nothing more than simple and introductory problems in the world of Python.
 
-* [Content](#content)
+* [Table Of Content](#table-of-content)
 
 ---
 
