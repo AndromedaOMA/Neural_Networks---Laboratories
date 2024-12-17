@@ -4,6 +4,7 @@
 
 ## Content
 * [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment-5)
+* [Assignment_4.5.2: Developed and trained a Residual Neural Network (ResNet) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5-2)
 * [Assignment_4.5: Developed and trained a Convolutional Neural Network (CNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5)
 * [Assignment_4: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4)
 * [Assignment_3: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using NumPy library](#assignment-3)
@@ -42,6 +43,40 @@ It is not necessary to implement the neural network from scratch (you can use Py
 
 ---
 
+<h1 id="assignment-4-5-2" align="left">Assignment_4.5.2:</h1>
+
+<h3 align="left">Here we have the requirement:</h3>
+
+Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870.
+Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
+
+IMPORTANT NOTE: Implement and train a Residual Neural Network(ResNet)!
+ALSO NOTE: This assignment is actually a bonus and continuation of assignment_4!
+
+<h3 align="left">Specifications:</h3>
+
+View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0d3298e447aa6e50db3543b6870
+
+<h3 align="left">How does it work?</h3>
+
+We will build the residual layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. We will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train of the ResNet.
+
+<h3 align="left">The logic behind the code:</h3>
+
+The ResNet contains one convolutional layer of 16 channels followed by a 2D batch normalization and ReLU activation function, further, two residual layers are implemented, each with 16 or 32 channels, the last one having a stride equal to 2. To make this possible, a second script "residual_block.py" will help implement the residual blocks that will take into account the residual connections that "skip" one or more layers.
+
+The fully connected neural network contains a number of two hidden layers that help to process the prediction of the entire artificial neural network. Between the two layers we used a Dropout regularization to reduce the possibility of overfitting and the ReLU activation function.
+
+From the optimization point of view, we will use the adam optimizer and the CosineAnnealingWarmRestarts learning rate scheduler, which adjusts the learning rate using a cosine annealing strategy with periodic restarts. This technique helps escape local minima by periodically increasing the learning rate back to a higher value.
+
+The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
+
+The Residual Neural Network achieves 99.71% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
+
+* [Content](#content)
+
+---
+
 <h1 id="assignment-4-5" align="left">Assignment_4.5:</h1>
 
 <h3 align="left">Here we have the requirement:</h3>
@@ -50,7 +85,7 @@ Participate in the following Kaggle competition -> https://www.kaggle.com/t/1422
 Use PyTorch to create a training Pipeline and do several experiments on the MNIST dataset, following the rules. 
 
 IMPORTANT NOTE: Implement and train a Convolutional Neural Network(CNN)!
-ALSO NOTE: This theme is actually a bonus and continuation of assignment_4!
+ALSO NOTE: This assignment is actually a bonus and continuation of assignment_4!
 
 <h3 align="left">Specifications:</h3>
 
@@ -58,7 +93,7 @@ View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0
 
 <h3 align="left">How does it work?</h3>
 
-We will build the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. We will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train the convolutional neural network.
+We will build the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. We will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train of the CNN.
 
 <h3 align="left">The logic behind the code:</h3>
 
@@ -70,7 +105,7 @@ From the optimization point of view, we will use the adam optimizer and the Cosi
 
 The data set was processed/transformed using RandomAffine for easy modification of these data, converted to tensors and normalized.
 
-The Convolutional Neural Network achieves 99.50% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
+The Convolutional Neural Network achieves 99.56% test accuracy. The model that achieved this accuracy is saved in the file "best_model.pth". I also saved the prediction of the convolutional network in the file "submission.csv".
 
 * [Content](#content)
 
