@@ -60,7 +60,7 @@ View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0
 
 <h3 align="left">How does it work?</h3>
 
-We will build the residual layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. We will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train of the ResNet.
+Built and implemented the residual layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. Also built the fully connected layers that serve to provide the desired predictions. Finally the backpropagation process will be applied to adjust the weights/train of the ResNet.
 
 <h3 align="left">The logic behind the code:</h3>
 
@@ -95,7 +95,7 @@ View the specifications on Kaggle competition -> https://www.kaggle.com/t/1422c0
 
 <h3 align="left">How does it work?</h3>
 
-We will build the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. We will build the fully connected layers that serve to provide the desired predictions. Finally we will apply the backpropagation process to adjust the weights/train of the CNN.
+Built and implemented the convolutional layers that will process the images from the MNIST dataset, which will be downloaded and uploaded in mini-batches, in order to then resize the outputs of these layers. Also built the fully connected layers that serve to provide the desired predictions. Finally the backpropagation process will be applied to adjust the weights/train of the CNN.
 
 <h3 align="left">The logic behind the code:</h3>
 
