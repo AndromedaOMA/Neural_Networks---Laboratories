@@ -193,7 +193,7 @@ Every neural layer, method, optimizer and activation function will be implemente
 
 The multi layer network uses a ReLU activation function for modeling and processing and Softmax which will adjust the final results during the Forward propagation process. Time during which the partial derivatives of these functions will be used during the Back propagation process.
 
-The weights will be initialized with random values ​​using the Xavier method that uses symmetric functions to avoid blocking the neural network. It helps stabilize the variance of activations across layers, leading to better convergence during training.
+The weights will be initialized using the He method to avoid blocking the neural network. It helps stabilize the variance of activations across layers, leading to better convergence during training.
 
 From the dataset point of view, I have implemented a method that will generate batches from the entire dataset and shuffle them.
 
