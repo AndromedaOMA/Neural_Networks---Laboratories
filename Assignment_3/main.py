@@ -84,8 +84,7 @@ class NN:
         h_layer = self.sizes[1]
         out_layer = self.sizes[2]
 
-        """configurare Xavier pentru model ce utilizează funcții simetrice
-           (tocmai pentru evitarea blocării rețelei neuronale)"""
+        """He configuration"""
         self.params = {
             'W1': np.random.randn(h_layer, in_layer) * np.sqrt(2 / (h_layer + in_layer)),  #100x784
             'W2': np.random.randn(out_layer, h_layer) * np.sqrt(2 / (out_layer + h_layer))  #10x100
