@@ -3,7 +3,7 @@
 
 
 ## Table Of Content
-* [Assignment_5: Developed and trained a Convolutional Neural Network for processing the Flappy Bird game using PyTorch framwork](#assignment-5)
+* [Assignment_5: Developed and trained a Deep Q-Learning using Convolutional Neural Network for processing the Flappy Bird game using PyTorch framework](#assignment-5)
 * [Assignment_4.5.2: Developed and trained a Residual Neural Network (ResNet) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5-2)
 * [Assignment_4.5: Developed and trained a Convolutional Neural Network (CNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4-5)
 * [Assignment_4: Developed and trained a Multi Layer Neural Network (MLNN) for processing the MNIST dataset using PyTorch framwork](#assignment-4)
@@ -13,7 +13,7 @@
 * [Installation](#inst)
 
 --------------------------------------------------------------------------------
-<h1 id="assignment-5" align="left">Assignment_5:</h1>
+<h1 id="assignment-5" align="left">Assignment_5: FlappyNet</h1>
 
 <h3 align="left">Here we have the requirement:</h3>
 
@@ -33,11 +33,59 @@ You can train the model directly on images (the model receives the pixels) or yo
 
 It is not necessary to implement the neural network from scratch (you can use PyTorch), but you must implement the Q learning algorithm.
 
-<h3 align="left">The logic behind the code:</h3>
-  - ...
-
 <h3 align="left">How does it work?</h3>
-  - ...
+
+  Implemented several scripts that serve the purpose of training the FlappyBird agent. The scripts are placed in two broad typologies: Deep Q Learning (DQL) and Convolutional Deep Q Learning (CDQN). Both follow the same implementation, the only difference is given by the convolutional aspect of CDQN.
+  
+  At the same time, for each type of architecture, pre-trained models are available from which we can choose to visualize the FlappyBird agent through the graphical interface, through the "FlappyBird-v0" environment for Gymnasium.
+  
+  Delving into the implementation idea, the solution uses the concepts of Double DQN (DDQN) and Dueling DQN (Dueling Architecture). These approaches significantly help in training the agent.
+
+  
+<h3 align="left">The logic behind the code:</h3>
+
+  The final solution presents the implementation of Neural Networks that are focused on Reinforcement Learning concepts through the Q-Learning algorithm. The first implementation ideas will consider only some classic Neural Networks (without Dueling architecture). So these were the initial implementations of Fully Connected, respectively Convolutional Neural Networks.
+
+  The multilayer neural network consists of three hidden layers of 256 perceptrons each followed by a LayerNorm for data normalization. For the first layer we will use the ReLU activation function, and for the second layer the GeLU activation function and a Dropout for regularization.
+  
+  The convolutional neural network contains 2 convolutional layers followed by one Pooling layer each. The first convolution layer will contain 16 channels and the second layer will contain 32 channels. The transition from each convolution layer to the pooling layer is processed and filtered by means of a ReLU activation function and BatchNorm2d normalization. The convolutional layers are followed by a fully connected network consisting of two hidden layers, between which is a ReLU activation function and the Dropout regularizer. The LogSoftmax function is attached to the last layer.
+
+  Through these two Neural Networks, for each one separately, a Target Neural Network identical to the initial one was applied and trained, in parallel, through the Experience Replay stack.
+
+  Finally the original Neural Networks were adapted to the Dueling Architecture. Dueling DQN and Dueling CNN Neural Networks receive the same specific architecture, the only significant difference between them is given by the convolutional layers described above. We use Dueling architecture because this architecture leads to better policy evaluation. NOTE: The Dueling architecture is nothing but an extension of the standard Deep Q-Network (DQN)!
+  
+  The architecture used will change the last layers of Fully Connected Neural Networks into two streams, one associated with value (value_stream) and another associated with advantages (advantages_stream). streams will consist of two hidden layers and a ReLU activation function.
+  
+  Here we have the summary and the function/formula we will apply within the Dueling architecture: 
+```bash
+Q(s,a) = V(s) + A(s,a) − (1/|A|) * ∑ A(s,a')
+```
+ I other words: V + A - mean(A), where V is the computed Value using the value_stream and A is the computed Advantages using the advantages_stream.
+
+---
+
+<h3 id="inst" align="left">Installation:</h3>
+
+1. Clone the current repositoy! Now you have the project avalable on your local server!</br>
+ Type command: ```git clone git@github.com:AndromedaOMA/FlappyNet.git```
+2. Select, open and run the FlappyNet project through PyCharm IDE or the preferred IDE.
+3. Have fun!
+
+---
+
+<h3 id="score" align="left">Best score:</h3>
+
+<img src="https://github.com/user-attachments/assets/20a59458-2199-4a58-8c67-7afe1945c65e" alt="Moments before the disaster" style="width: 300px; height: auto;">
+
+---
+
+**NOTE**: This project represents the final project supported and realized within the Neueonal Networks laboratories of the Faculty of Computer Science of the Alexandru Ioan Cuza University in Iași, Romania.
+
+**ALSO NOTE**: Developed this project together with Marin Andrei (andier13 on GitHub) in the fifth semester of the faculty.
+
+---
+
+- ⚡ Fun fact: **Through this project I developed better the subtle concepts of Reinforcement Learning and Q-Learning!**
 
 * [Table Of Content](#table-of-content)
 
