@@ -75,7 +75,7 @@ Q(s,a) = V(s) + A(s,a) − (1/|A|) * ∑ A(s,a')
 
 <h3 id="score" align="left">Best score:</h3>
 
-<img src="https://github.com/user-attachments/assets/20a59458-2199-4a58-8c67-7afe1945c65e" alt="Moments before the disaster" style="width: 300px; height: auto;">
+<img src="https://github.com/user-attachments/assets/1b53b7f2-bc87-4ee5-ae97-14bdf6a11f06" alt="Moments before the disaster" style="width: 300px; height: auto;">
 
 ---
 
