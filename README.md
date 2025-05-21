@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, here we have the Neural Network labs</h1>
-<h3 align="center">Developed these labs in the fifth semester of the faculty.</h3>
+<h3 align="center">Deep NN Architectures: Deep Q NN (DQN) - Residual NN (ResNet) - Convolutional NN (CNN) - Linear/Multilateral NN (MLNN) </h3>
 
 
 ## Table Of Content
